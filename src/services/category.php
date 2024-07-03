@@ -2,26 +2,33 @@
 
 require_once '../config/conn.php';
 
-function selectAll()
+function selectAllCategory()
 {
     global $connection;
     $sql = "SELECT * FROM categories";
     return $connection->query($sql);
 }
 
-function delete($id)
+function selectCategorykById($id)
+{
+    global $connection;
+    $sql = "SELECT * FROM categories WHERE id = $id";
+    $result = $connection->query($sql);
+    return $result->fetch_assoc();
+}
+
+function deleteCategory($id)
 {
     global $connection;
     $sql = "DELETE FROM categories WHERE id = $id";
     return $connection->query($sql);
 }
 
-function create($data)
+function createCategory($data)
 {
-    $name = $data['name'];
-    $description = $data['description'];
+    $total = $data['stock'];
 
     global $connection;
-    $sql = "INSERT INTO categories VALUES(NULL, '$name', '$description', NOW(), NOW())";
+    $sql = "INSERT INTO categories VALUES(NULL, '$total', NOW(), NOW())";
     return $connection->query($sql);
 }

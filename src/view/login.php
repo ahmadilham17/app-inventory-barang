@@ -16,12 +16,12 @@ if (isset($_SESSION['is_login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Register</title>
+    <title>Halaman login</title>
 </head>
 
 <body>
 
-    <h1>Register Akun</h1>
+    <h1>Login Akun</h1>
     <form action="../services/login.php" method="post">
         <label for="email">Email</label>
         <input type="email" name="email" id="email"><br>
